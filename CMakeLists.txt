@@ -4,6 +4,5 @@ project(RSA)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_subdirectory(RSA_encryption)
-add_subdirectory(RSA_signature)
+add_subdirectory(RSA)
 add_subdirectory(client_model)
