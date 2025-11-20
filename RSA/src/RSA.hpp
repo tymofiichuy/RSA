@@ -1,12 +1,15 @@
 #include "bbs_generator.hpp"
+#include "primality_test.hpp"
 #include "string"
 
 struct secret_key{
     CryptoPP::Integer p, q, d;
+    void reset();
 };
 
 struct public_key{
     CryptoPP::Integer n, e;
+    void reset();
 };
 
 class RSA{
@@ -22,14 +25,12 @@ private:
     //p size
     int security_par = 1024;
 
-    //OAEP/PSS?
-    // CryptoPP::Integer format_message(CryptoPP::Integer meassage);
 public:
     bool initialized = false;
 
     bool set_security_par(int par);
     bool keygen();
-    bool load_key(std::string file);
+    //bool load_key(std::string file);
 
     public_key get_encryption_public_key();
     public_key get_signature_public_key();
