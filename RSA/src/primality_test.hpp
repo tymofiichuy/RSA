@@ -1,3 +1,5 @@
+#pragma once
+
 #include<cryptopp/integer.h>
 #include<vector>
 #include "bbs_generator.hpp"

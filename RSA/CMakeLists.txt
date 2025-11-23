@@ -17,8 +17,10 @@ set(SOURCES
 
 find_package(cryptopp CONFIG REQUIRED)
 
-add_executable(RSA ${MAIN_DIR}/driver.cpp ${SOURCES})
+add_library(RSA STATIC ${SOURCES})
+add_executable(RSA_enc ${MAIN_DIR}/driver.cpp ${SOURCES})
 
 target_include_directories(RSA PUBLIC ${SOURCE_DIR})
-
 target_link_libraries(RSA PUBLIC cryptopp::cryptopp)
+
+target_link_libraries(RSA_enc PRIVATE RSA)

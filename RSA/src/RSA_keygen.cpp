@@ -80,3 +80,11 @@ bool RSA::keygen(){
     initialized = true;
     return true;
 }
+
+public_key RSA::get_encryption_public_key(){
+    return enc_pk;
+}
+
+public_key RSA::get_signature_public_key(){
+    return sign_pk;
+}

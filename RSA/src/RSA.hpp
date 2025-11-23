@@ -1,3 +1,5 @@
+#pragma once
+
 // #include "bbs_generator.hpp"
 #include "primality_test.hpp"
 #include "string"
@@ -10,6 +12,11 @@ struct secret_key{
 struct public_key{
     CryptoPP::Integer n, e;
     void reset();
+};
+
+struct message{
+    public_key sender_enc, sender_sign;
+    CryptoPP::Integer msg, sgn;
 };
 
 class RSA{
