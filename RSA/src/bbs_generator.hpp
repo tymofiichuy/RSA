@@ -2,6 +2,7 @@
 
 #include<cryptopp/integer.h>
 #include<random>
+#include<iostream>
 
 class BBS_generator{
 private:

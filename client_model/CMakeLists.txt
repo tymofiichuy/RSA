@@ -9,11 +9,7 @@ set(SOURCE_DIR ${CMAKE_SOURCE_DIR}/client_model/src)
 set(MAIN_DIR ${CMAKE_SOURCE_DIR}/client_model/main)
 
 set(SOURCES
-    # ${RSA_DIR}/bbs_generator.cpp
-    # ${RSA_DIR}/primality_test.cpp
-    # ${RSA_DIR}/RSA_keygen.cpp
-    # ${RSA_DIR}/RSA_encryption.cpp
-    # ${RSA_DIR}/RSA_signature.cpp
+    ${SOURCE_DIR}/client_model.cpp
 )
 
 add_executable(client_model ${MAIN_DIR}/main.cpp ${SOURCES})

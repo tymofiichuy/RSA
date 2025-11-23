@@ -50,7 +50,7 @@ bool RSA::keygen(){
     enc_sk.reset();
     enc_pk.reset();
 
-    enc_pk.e = Integer("0xFFFF");
+    enc_pk.e = Integer("0x10001");
     while(enc_sk.d == Integer::Zero()){
         enc_sk.p = find_prime();
         enc_sk.q = find_prime();
@@ -59,13 +59,13 @@ bool RSA::keygen(){
         }        
         enc_pk.n = enc_sk.p*enc_sk.q;
         enc_eu_func = (enc_sk.p-Integer::One())*(enc_sk.q-Integer::One());
-        enc_sk.d = enc_pk.e.InverseMod(enc_eu_func);       
+        enc_sk.d = enc_pk.e.InverseMod(enc_eu_func);     
     }
 
     sign_sk.reset();
     sign_pk.reset();
 
-    sign_pk.e = Integer("0xFFFF");
+    sign_pk.e = Integer("0x10001");
     while(sign_sk.d == Integer::Zero()){
         sign_sk.p = find_prime();
         sign_sk.q = find_prime();
