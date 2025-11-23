@@ -10,6 +10,9 @@ set(MAIN_DIR ${CMAKE_SOURCE_DIR}/RSA/main)
 set(SOURCES
     ${SOURCE_DIR}/bbs_generator.cpp
     ${SOURCE_DIR}/primality_test.cpp
+    ${SOURCE_DIR}/RSA_keygen.cpp
+    ${SOURCE_DIR}/RSA_encryption.cpp
+    ${SOURCE_DIR}/RSA_signature.cpp
 )
 
 find_package(cryptopp CONFIG REQUIRED)

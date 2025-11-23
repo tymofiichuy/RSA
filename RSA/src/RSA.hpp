@@ -1,4 +1,4 @@
-#include "bbs_generator.hpp"
+// #include "bbs_generator.hpp"
 #include "primality_test.hpp"
 #include "string"
 
@@ -23,9 +23,13 @@ private:
     CryptoPP::Integer sign_eu_func;
 
     //p size
-    int security_par = 1024;
+    int security_par = 512;
+    CryptoPP::Integer find_prime();
 
 public:
+    //must be private!
+    //CryptoPP::Integer find_prime();
+
     bool initialized = false;
 
     bool set_security_par(int par);
@@ -41,6 +45,6 @@ public:
     CryptoPP::Integer sign(CryptoPP::Integer message);
     bool verify(CryptoPP::Integer message, CryptoPP::Integer signature, public_key s_pk);
 
-    RSA();
-    ~RSA();
+    // RSA();
+    // ~RSA();
 };
