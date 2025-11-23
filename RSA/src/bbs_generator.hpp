@@ -13,6 +13,7 @@ public:
     void set_seed(CryptoPP::Integer s);
     void change_mode();
 
+    //len in bits!
     CryptoPP::Integer gen_num(int len);
 
     BBS_generator(CryptoPP::Integer s, bool b);

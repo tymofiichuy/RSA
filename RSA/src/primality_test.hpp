@@ -2,13 +2,6 @@
 #include<vector>
 #include "bbs_generator.hpp"
 
-class primality_test{
-private:
-    Pascal_criterion PC;
-public:
-
-};
-
 class Pascal_criterion{
 private:
     int base = 256;
@@ -21,7 +14,20 @@ public:
 
 class Miller_Rabin_test{
 private:
+    int precision = 16;
 
 public:
+    //Pr(err) = 1/2^(2pr)
+    void set_precision(int pr);
+
     bool test(CryptoPP::Integer in);    
+};
+
+class primality_test{
+private:
+    Pascal_criterion PC;
+    Miller_Rabin_test MRT;
+
+public:
+    bool test(CryptoPP::Integer in);
 };

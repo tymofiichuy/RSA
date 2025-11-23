@@ -12,8 +12,8 @@ bool Pascal_criterion::test(Integer in){
         uint64_t sum;
         for(int i = 0; i < 8; i++){
             sum = 0;
-            for(int j = 1; j <= len; j++){
-                sum += in.GetByte(len-j)*b_matrix[i-1][j%b_matrix[i].size()];
+            for(int j = 0; j < len; j++){
+                sum += in.GetByte(j)*b_matrix[i][j%b_matrix[i].size()];
             }
             if(sum%primes[i]==0){
                 return false;
@@ -21,6 +21,13 @@ bool Pascal_criterion::test(Integer in){
         }
     }
     return true;
+}
+
+void Miller_Rabin_test::set_precision(int pr){
+    if(pr<0){
+        throw runtime_error("invalid precision");
+    }
+    precision = pr;
 }
 
 bool Miller_Rabin_test::test(Integer in){
@@ -36,7 +43,7 @@ bool Miller_Rabin_test::test(Integer in){
     }
 
     //k = 64?
-    while(counter < 16){
+    while(counter < precision){
         do {base = gen.gen_num(in.ByteCount()*8);}while(base < 2 || base >= in - 1);
 
         if(Integer::Gcd(in, base) != Integer::One()){
@@ -59,6 +66,14 @@ bool Miller_Rabin_test::test(Integer in){
                 return false;
             }
         }
+        return false;
     }
     return true;
+}
+
+bool primality_test::test(CryptoPP::Integer in){
+    if(!PC.test(in)){
+        return false;
+    }
+    return MRT.test(in);
 }
